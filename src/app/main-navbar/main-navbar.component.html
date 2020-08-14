@@ -1,0 +1,151 @@
+<div class="dark">
+  <mat-sidenav-container  class="sidenav-container">
+    <mat-sidenav
+      [autoFocus]="false"
+      #drawer
+      mode="over"
+      class="sidenav mat-elevation-z8"
+      fixedInViewport="true"
+      role="main"
+    >
+      <mat-toolbar style="font-family: 'Quicksand', sans-serif;"
+        >Fluxton Inc.</mat-toolbar
+      >
+      <mat-nav-list>
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/">Home</a>
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/feed">Feed</a>
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/about"
+          >About Us</a
+        >
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/policy"
+          >Policy</a
+        >
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/team"
+          >Meet The Team</a
+        >
+        <a mat-list-item (click)="drawer.toggle()" routerLink="/contact"
+          >Contact Us
+        </a>
+
+        <!-- Current Version -->
+        <span class="fix-bottom">v1.5.3</span>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="mat-elevation-z8">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+        >
+          <mat-icon class="mat-icon-sidemenu" aria-label="Side nav toggle icon"
+            >menu</mat-icon
+          >
+        </button>
+
+        <a
+          onclick="this.blur()"
+          *ngIf="!smallScreenToggle"
+          class="logo-main"
+          routerLink="/feed"
+        >
+          <img src="../../assets/img/logo/logo-navbar.png" alt="logo" />
+          <!-- <mat-icon class="mat-icon-waves">waves</mat-icon> -->
+          <span class="verbosy">Cloakspace</span>
+        </a>
+
+        <span class="fill-remaining-space"></span>
+
+        <button *ngIf="toggleSearch" mat-icon-button (click)="onBackArrow()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <input
+          [hidden]="hideIconsToggle"
+          #target
+          [(ngModel)]="searchValue"
+          [autofocus]="toggleSearch"
+          (keyup.enter)="searchPost(target.value)"
+          [ngClass]="toggleSearch ? 'show' : 'hide'"
+          name="search"
+          class="search-bar"
+          placeholder="Search"
+        />
+
+        <button
+          [hidden]="hideIconsToggle"
+          class="filter-icon"
+          onclick="this.blur()"
+          [mat-menu-trigger-for]="filterTagsMenu"
+          *ngIf="!toggleSearch"
+          mat-icon-button
+        >
+          <mat-icon class="mat-icon-filter">filter_list</mat-icon>
+        </button>
+
+        <mat-menu yPosition="below" #filterTagsMenu class="tag-menu-content">
+          <button
+            *ngFor="let tag of tags"
+            mat-menu-item
+            (click)="applyFilter(tag.val.name)"
+          >
+            {{ tag.val.name }}
+          </button>
+        </mat-menu>
+
+        <button
+          [hidden]="hideIconsToggle"
+          *ngIf="!toggleSearch"
+          mat-icon-button
+          class="search-icon small-search"
+          (click)="onToggleSearch()"
+        >
+          <mat-icon class="mat-icon-search">search</mat-icon>
+        </button>
+
+        <button
+          *ngIf="!smallScreenToggle"
+          onclick="this.blur()"
+          mat-icon-button
+          class="create-post-button small-create"
+          (click)="openDialog()"
+        >
+          <mat-icon class="mat-icon-create">create</mat-icon>
+        </button>
+
+        <button
+          [hidden]="hideIconsToggle"
+          *ngIf="!toggleSearch"
+          mat-button
+          class="search-icon btn-search"
+          (click)="onToggleSearch()"
+        >
+          <mat-icon class="mat-icon-search">search</mat-icon>
+          Search
+        </button>
+
+        <button
+          *ngIf="!smallScreenToggle"
+          onclick="this.blur()"
+          mat-button
+          class="create-post-button btn-create"
+          (click)="openDialog()"
+        >
+          <mat-icon class="mat-icon-create">create</mat-icon>
+          Create
+        </button>
+
+        <!-- <button mat-icon-button (click)="toggleDark = !toggleDark">
+          <mat-icon *ngIf="toggleDark">wb_sunny</mat-icon>
+          <mat-icon *ngIf="!toggleDark">bedtime</mat-icon>
+        </button> -->
+      </mat-toolbar>
+
+      <!-- Add Content Here -->
+      <ng-content></ng-content>
+
+      <app-footer *ngIf="showFooter"></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

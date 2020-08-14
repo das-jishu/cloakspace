@@ -1,0 +1,91 @@
+.main-wrapper {
+  padding: 20px 0;
+}
+
+.masthead-brand {
+  font-size: 2.5rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.inner {
+  padding: 10px 0;
+  margin: 20px auto;
+}
+
+.logo-body {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.cover-heading {
+  margin: 10px 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.5rem;
+}
+
+.main-btn {
+  width: 12rem;
+  height: 3rem;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.bind {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.col-md-4 {
+  margin-bottom: 50px;
+  max-width: 320px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+/* .bind {
+  max-width: 320px;
+  margin: 0px auto;
+  padding: 15px;
+  background-color: #424242;
+  -webkit-box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.88);
+  -moz-box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.88);
+  box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.88);
+} */
+
+.sec-btn {
+  margin-top: 35px;
+}
+
+@media (min-width: 992px) {
+  .image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .bind {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (min-width: 641px) {
+  .sec-btn {
+    display: none;
+  }
+}

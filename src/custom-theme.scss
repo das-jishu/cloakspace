@@ -1,0 +1,38 @@
+@import "~@angular/material/theming";
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+@include mat-core();
+
+/**
+  *
+  * Default (Light) Theme
+  *
+*/
+
+$kratos-primary: mat-palette($mat-deep-purple);
+$kratos-accent: mat-palette($mat-amber, A200, A100, A400);
+$kratos-warn: mat-palette($mat-red);
+
+$kratos-theme: mat-light-theme($kratos-primary, $kratos-accent, $kratos-warn);
+
+@include angular-material-theme($kratos-theme);
+
+/**
+  *
+  * Dark Theme
+  *
+*/
+
+$kratos-alt-primary: mat-palette($mat-purple);
+$kratos-alt-accent: mat-palette($mat-lime, A200, A100, A400);
+$kratos-alt-warn: mat-palette($mat-deep-orange);
+
+$kratos-alt-theme: mat-dark-theme(
+  $kratos-alt-primary,
+  $kratos-alt-accent,
+  $kratos-alt-warn
+);
+
+.dark {
+  @include angular-material-theme($kratos-alt-theme);
+}

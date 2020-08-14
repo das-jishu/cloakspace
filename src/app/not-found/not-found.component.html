@@ -1,0 +1,23 @@
+<div id="main">
+    <div *ngIf="!search" class="fof">
+        <h1>Error 404</h1>
+    </div>
+
+    <p *ngIf="!search && !fullPagePostError">
+        Seems like the page you're looking for doesn't exist.
+    </p>
+
+    <p *ngIf="search">
+        Sorry, we couldn't find anything matching your search criteria.
+    </p>
+
+    <p *ngIf="fullPagePostError">
+        Looks like this post doesn't exist or maybe it was deliberately
+        removed due to excessive reports. <br><br>
+        Either way, we're sorry!
+    </p>
+
+    <button class="home" mat-stroked-button routerLink="/feed">
+        Take Me Back
+    </button>
+</div>

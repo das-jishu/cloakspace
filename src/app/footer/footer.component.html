@@ -1,0 +1,44 @@
+<footer class="footer footer-main">
+
+    <loader *ngIf="isLoading; else loaded"></loader>
+
+    <ng-template #loaded>
+        <p class="footer-stats">
+            <span>
+                Total Page Visits: {{ pageVisits }}
+            </span>
+
+            <span *ngIf="false">
+                Total Likes: {{ totalLikes }}
+            </span>
+
+            <span *ngIf="false">
+                Total Comments: {{ totalComments }}
+            </span>
+
+            <span>
+                Total Posts: {{ totalPosts }}
+            </span>
+        </p>
+    </ng-template>
+
+    <p class="footer-links">
+        <a (click)="navigate('home')">Home</a>
+        .
+        <a (click)="navigate('feed')">Feed</a>
+        .
+        <a (click)="navigate('about')">About Us</a>
+        .
+        <a (click)="navigate('policy')">Policy</a>
+        .
+        <a (click)="navigate('team')">Meet The Team</a>
+        .
+        <a (click)="navigate('contact')">Contact Us</a>
+    </p>
+
+    <p class="footer-company-name">
+        <span>All Rights Reserved. </span>
+        <span>Cloakspace &copy;{{date}}</span>
+    </p>
+
+</footer>

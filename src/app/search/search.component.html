@@ -1,0 +1,42 @@
+<spinner *ngIf="isLoading; else loaded"></spinner>
+
+<ng-template #loaded>
+
+    <div *ngIf="filteredPosts.length !== 0; else notFound">
+
+        <h1 style="font-family: 'Quicksand', sans-serif;" class="text-center font-weight-bold">
+            {{ filteredPosts.length }} {{ filteredPosts.length === 1 ? 'result' : 'results' }} for
+            {{ queryParams.tag ? '"' + queryParams.tag + '"' : '' }}
+            {{ queryParams.tag && queryParams.query ? 'and' : '' }}
+            {{ queryParams.query ? '"' + queryParams.query + '"' : '' }}
+        </h1>
+
+        <div class="search-details">
+            <button mat-stroked-button [mat-menu-trigger-for]="menu">
+                Clear Filters
+            </button>
+
+            <mat-menu #menu class="filter-menu">
+                <button (click)="clearFilters('query')" mat-menu-item>Clear Search Filter</button>
+                <button (click)="clearFilters('tag')" mat-menu-item>Clear Tag Filter</button>
+                <button (click)="clearFilters('all')" mat-menu-item>Clear All</button>
+            </mat-menu>
+        </div>
+
+        <div class="row" *ngFor="let p of filteredPosts; let i = index">
+            <div class="col-md-2"></div>
+
+            <div class="col-sm-12 col-md-8">
+                <post-card [post]="p" [searchTerms]="searchTerms" [insideSearch]="insideSearch" [route]="'home'">
+                </post-card>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <ng-template #notFound>
+        <not-found [search]="true"></not-found>
+    </ng-template>
+
+</ng-template>

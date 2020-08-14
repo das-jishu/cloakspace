@@ -1,0 +1,34 @@
+.sticky-top {
+  width: 100%;
+  height: 520px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.list-group {
+  color: black;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 17px;
+  box-sizing: content-box;
+}
+
+.list-group .list-group-item {
+  background-color: transparent;
+  color: white;
+  border: 1px solid grey;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.list-group .list-group-item:hover {
+  background-color: #ffc824;
+  color: black;
+}
+
+.fixed {
+  position: fixed;
+  max-width: 250px;
+}

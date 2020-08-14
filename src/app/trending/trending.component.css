@@ -1,0 +1,32 @@
+
+.fixed {
+  position: fixed;
+}
+
+.button {
+  margin: 7px 0;
+}
+
+.text-center {
+  font-size: 20px;
+  margin: 20px 0;
+  user-select: none;
+}
+
+.totalposts {
+  font-size: 15px;
+  margin-top: 350px;
+}
+
+.mat-icon-stars {
+  margin-bottom: 2px;
+}
+
+.recent {
+  color: #EC9BE3;
+  margin: 7px;
+}
+
+.mat-icon-schedule {
+  margin-bottom: 2px;
+}

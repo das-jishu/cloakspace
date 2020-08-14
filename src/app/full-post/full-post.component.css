@@ -1,0 +1,51 @@
+.example-form-field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+mat-card {
+  margin-bottom: 10px !important;
+}
+
+.alert {
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid grey;
+  user-select: none;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #ffc824 !important;
+}
+
+.post-comment {
+  padding-top: 2px;
+  margin-bottom: 10px;
+}
+
+textarea#textarea {
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  padding-bottom: 22px;  
+}
+
+@media (max-width: 992px) {
+  .col-sm-0 {
+    display: none;
+  }
+}
+
+#prefixemojiicon {
+  top: -7px;
+  left: -2px;
+}
+
+@media (max-width: 700px) {
+  #prefixemojiicon {
+    display: none;
+  }
+}

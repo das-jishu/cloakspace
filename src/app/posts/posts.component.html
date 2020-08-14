@@ -1,0 +1,38 @@
+<spinner *ngIf="isLoading; else loaded"></spinner>
+
+<ng-template #loaded>
+    <div style="margin-bottom: 10px;" class="showbuttons">
+        <button (click)="showTrending()" mat-button class="topbtn" color="warn">
+            <mat-icon>trending_up</mat-icon>
+            Trending
+        </button>
+        <button (click)="showPopular()" mat-button class="topbtn" color="accent">
+            <mat-icon class="mat-icon-stars">stars</mat-icon>
+            Popular
+        </button>
+        <button (click)="showRecent()" mat-button class="recent topbtn">
+            <mat-icon class="mat-icon-schedule">schedule</mat-icon>
+            Recent
+        </button>    
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-0 col-lg-3">
+            <posts-filter></posts-filter>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <div class="row" *ngFor="let p of posts; let i = index">
+                <div class="col-sm-12 col-lg-12">
+                    <post-card [post]="p" [route]="'home'"></post-card>
+                </div>
+            </div>
+            <div class="alert caughtup text-center">You are all caught up!
+                <br>
+                <button (click)="revisit()" style="margin-top: 15px;" class="btn" mat-raised-button>Revisit all posts</button>
+            </div>
+        </div>
+        <div class="col-sm-0 col-lg-3">
+            <trending></trending>
+        </div>
+    </div>
+</ng-template>

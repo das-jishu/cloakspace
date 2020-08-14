@@ -1,0 +1,10 @@
+h3 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+
+.actions-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 35px 0 12px;
+}

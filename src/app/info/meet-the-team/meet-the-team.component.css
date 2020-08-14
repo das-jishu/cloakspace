@@ -1,0 +1,87 @@
+h1 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container2 {
+  margin-top: 80px;
+}
+
+.picsubham,
+.picsubhranil {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.name {
+  color: lightgrey;
+}
+
+.text {
+  margin-bottom: 40px;
+}
+
+.btn-group {
+  height: 40px;
+  margin-top: 35px;
+}
+
+.btn-group img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+.btn-group img:hover {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+}
+
+#facebook,
+#linkedin,
+#gmail {
+  height: 35px;
+  width: 35px;
+  margin-top: -3px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+#facebook:hover,
+#linkedin:hover,
+#gmail:hover {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.contact {
+  margin: 10px 0px 20px 0px;
+}
+
+.col-sm-6 {
+  margin-bottom: 40px;
+}
+
+/* .text {
+  text-align: justify;
+  text-justify: newspaper;
+} */
+
+.row {
+  margin-bottom: 25px;
+}

@@ -1,0 +1,14 @@
+.text-center {
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.search-details {
+  margin: 35px 0 55px;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .filter-menu button {
+  font-family: "Quicksand", sans-serif;
+}

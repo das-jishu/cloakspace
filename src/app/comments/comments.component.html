@@ -1,0 +1,134 @@
+
+<div id="emojis" style="display: none; position: absolute; left: 100px; z-index:10000;">
+  <emoji-mart (emojiClick)="addEmoji($event)" title="Pick one." emoji="point_up"></emoji-mart><br>
+  <button mat-raised-button (click)="emojiSelect($event)" style="background-color: red; font-weight: bold; margin-right: 20px;">Close</button>
+  <button mat-raised-button id="emojisheader" style="background-color: #FFC825; font-weight: bold; color: black;">Hold here to drag</button>
+</div>
+
+<mat-table multiTemplateDataRows [dataSource]="dataSource">
+  <ng-container matColumnDef="icon">
+    <mat-cell class="picture" *matCellDef="let element">
+      <mat-icon>person</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="comments">
+    <mat-cell *matCellDef="let element">
+      <div>
+        <span class="date">
+          {{ element.date | date: "MMM d, yy &nbsp;&nbsp;H:mm" }} </span
+        ><br />
+        <!-- <span class="text">{{ element.text | linkify }} </span> -->
+        <span class="text" [innerHTML]="element.text | linkify"></span>
+        <br /><br />
+        <span *ngIf="element.replies.length !== 1" style="color: lightblue;"
+          >{{ element.replies.length }} replies&nbsp; . &nbsp;</span
+        >
+        <span *ngIf="element.replies.length === 1" style="color: lightblue;"
+          >{{ element.replies.length }} reply&nbsp; . &nbsp;</span
+        >
+        <span
+          (click)="element.isExpanded = !element.isExpanded; this.value='';"
+          style="color: #ebef9c; cursor: pointer;"
+          >Reply</span
+        >
+        <span
+          *ngIf="element.replies.length > 0"
+          style="color: #e4afde; cursor: pointer;"
+          (click)="element.isExpanded = !element.isExpanded; this.value='';"
+          >&nbsp; . &nbsp;View all</span
+        >
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="displayedColumns.length"
+    >
+      <div
+        style="width: 100%;"
+        class="example-element-detail"
+        [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
+      >
+        <!-- *ngIf="element.replies && element.replies.length > 0" -->
+
+        <mat-table
+          [dataSource]="element.replies"
+          class="mat-elevation-z2"
+          width="100%"
+        >
+          <ng-container matColumnDef="replyto">
+            <mat-header-cell style="padding: 0px;" *matHeaderCellDef>
+              <mat-form-field appearance="outline" class="example-form-field">
+                  <mat-label>Add a reply</mat-label>
+                  <textarea
+                    id="textarea"
+                    matInput
+                    mat-autosize
+                    [(ngModel)]="value"
+                    style="overflow: hidden;"
+                  >
+                  </textarea>
+                  <button id="prefixemojiicon" (click)="emojiSelect($event)" matPrefix mat-button mat-icon-button>
+                    <mat-icon>mood</mat-icon>
+                  </button>
+                  <button
+                    class="post-comment"
+                    *ngIf="value !== ''"
+                    mat-button
+                    matSuffix
+                    mat-icon-button
+                    (click)="addReply(element.key, value)"
+                    aria-label="Clear"
+                  >
+                    <mat-icon>forward</mat-icon>
+                  </button>
+                </mat-form-field>
+            
+              <!-- <div style="display:none; position: absolute;">
+                <emoji-mart (emojiClick)="addEmoji($event)" title="Pick one" emoji="point_up"></emoji-mart>
+              </div> -->
+              
+            </mat-header-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="icon">
+            <mat-cell class="picture" *matCellDef="let elem">
+              <mat-icon>person_add</mat-icon>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="comments">
+            <mat-cell *matCellDef="let elem">
+              <div>
+                <span class="date">
+                  {{ elem.date | date: "MMM d, yy &nbsp;&nbsp;H:mm" }} </span
+                ><br />
+                <span class="text" [innerHTML]="elem.text | linkify"></span>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="['replyto']"></mat-header-row>
+          <mat-row
+            *matRowDef="let row; columns: displayedColumnsVersion"
+          ></mat-row>
+        </mat-table>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    class="example-element-row"
+    [class.example-expanded-row]="row.isExpanded"
+  ></mat-row>
+
+  <mat-row
+    style="min-height: 0px; padding: 0px;"
+    *matRowDef="let row; columns: ['expandedDetail']"
+    class="example-detail-row"
+  ></mat-row>
+</mat-table>

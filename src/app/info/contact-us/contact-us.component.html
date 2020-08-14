@@ -1,0 +1,53 @@
+<div class="container2">
+    <h2>CONTACT US</h2>
+    <div class="text">
+        We hope you are finding this website smooth enough for your use. If you face any issues or want to report any
+        grievances, please leave a feedback below. If you want to learn more about this website or how it works, leave a
+        feedback below.
+        <br><br>
+        NOTE: If you wish to hear back from us, please add your email while filling up the form.
+    </div>
+    <h1>LEAVE A FEEDBACK</h1>
+    <form id="feedbackForm" #f="ngForm" class="main-form" (ngSubmit)="save(f.value)">
+
+        <mat-form-field appearance="outline" class="mat-form-field">
+            <mat-label>What's this about?</mat-label>
+            <input #inputTitle id="title" (focus)="scrollTo(inputTitle)" matInput #title="ngModel" ngModel name="title"
+                placeholder="What's this about?" maxlength="60">
+            <mat-error class="text-center" *ngIf="title.touched && title.invalid">
+                <div *ngIf="title.errors?.maxlength">
+                    Topic should be maximum of 60 characters.
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mat-form-field main-body">
+            <mat-label>Elaborate your thoughts</mat-label>
+            <textarea #inputTextArea id="body" (focus)="scrollTo(inputTextArea)" #body="ngModel" ngModel name="body"
+                matInput rows="10" cols="70" mat-autosize placeholder="Elaborate your thoughts" required></textarea>
+            <mat-error class="text-center" *ngIf="body.touched && body.invalid">
+                Oops! This is a required field.
+            </mat-error>
+        </mat-form-field>
+
+        <div class="optional">Totally optional, but just in case we need to contact you.</div>
+        <mat-form-field appearance="outline" class="mat-form-field">
+            <mat-label>Your Email ID</mat-label>
+            <input #inputEmail id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                (focus)="scrollTo(inputEmail)" matInput #email="ngModel" ngModel name="email"
+                placeholder="sam@gmail.com">
+
+            <mat-error class="text-center" *ngIf="email.errors?.pattern">
+                Whoa, that's not a valid Email ID!
+            </mat-error>
+        </mat-form-field>
+
+        <div class="action-buttons">
+            <button mat-raised-button color="accent" [disabled]="f.invalid" type="submit" class="post-btn">
+                Submit
+            </button>
+        </div>
+
+    </form>
+
+</div>

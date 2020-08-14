@@ -1,0 +1,31 @@
+<div class="fixed">
+    <a style="margin-bottom: 5px; background-color: #303030; color: white; cursor: inherit; font-family: 'Quicksand', sans-serif;"
+        class="list-group-item list-group-item-action mat-menu-item">
+        <mat-icon style="font-size: 20px; margin-right: 5px;" color="accent">local_offer</mat-icon>
+        All Tags
+    </a>
+
+    
+    <div class="sticky-top">
+        <div class="list-group" *ngIf="!isLoading; else loaded">
+            
+
+
+            <a style="cursor: pointer;" *ngFor="let t of tags" (click)="applyFilter(t.val.name)"
+                class="list-group-item list-group-item-action font-weight-bold">{{ t.val.name }}</a>
+        </div>
+
+        <ng-template #loaded>
+            <loader></loader>
+        </ng-template>
+    </div>
+    <a style="border: none; 
+    margin-bottom: 5px; 
+    background-color: #303030; 
+    color: #EC9BE3; 
+    cursor: inherit;
+    font-size: 15px;"
+        class="scroll list-group-item list-group-item-action mat-menu-item">Scroll for more &nbsp;
+        <mat-icon style="color: #EC9BE3;">arrow_downward</mat-icon>
+    </a>
+</div>

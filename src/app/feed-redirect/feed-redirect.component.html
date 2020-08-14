@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <h3>
+        You will be redirected to your main feed after this. Are you sure you want to do that?
+    </h3>
+</mat-dialog-content>
+
+<mat-dialog-actions class="actions-buttons">
+    <button (click)="redirectToFeed()" mat-stroked-button mat-dialog-close>I'm Sure</button>
+    <button color="warn" mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>
+        Not Quite
+    </button>
+</mat-dialog-actions>

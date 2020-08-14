@@ -1,0 +1,89 @@
+form {
+  font-weight: bold;
+}
+
+form {
+  margin-bottom: 40px;
+}
+
+.main-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  margin-bottom: 50px;
+}
+
+.mat-form-field {
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  width: 80% !important;
+}
+
+.mat-error {
+  font-size: 12px;
+}
+
+.main-body {
+  width: 90%;
+  white-space: pre-wrap;
+}
+
+.tagList {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+textarea {
+  white-space: pre-wrap;
+}
+
+.action-buttons {
+  display: block;
+  margin: auto;
+}
+
+.post-btn {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+::ng-deep .mat-input-wrapper {
+  width: 100% !important;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 0;
+  margin: 50px auto 30px auto;
+  font-family: "Quicksand", sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 0;
+  margin: 20px auto 30px auto;
+  font-family: "Quicksand", sans-serif;
+}
+
+.optional {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.container2 {
+  margin-top: 60px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #ffc824 !important;
+}
+
+/* .text {
+  text-align: justify;
+  text-justify: newspaper;
+} */

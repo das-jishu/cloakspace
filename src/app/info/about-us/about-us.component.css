@@ -1,0 +1,44 @@
+.text {
+  text-align: left;
+  /* text-justify: newspaper; */
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
+  margin-top: -10px;
+}
+
+.logo-body {
+  width: 178px;
+  height: 178px;
+  border-radius: 50%;
+}
+
+.credits {
+  color: rgb(165, 165, 165);
+  margin-bottom: 20px;
+}
+
+.row {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.row button {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container2 {
+  margin-top: 60px;
+}
+
+.verbosy {
+  margin-bottom: 60px;
+}

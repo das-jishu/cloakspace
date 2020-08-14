@@ -1,0 +1,223 @@
+<div style="position: relative;">
+  <div class= "warnblurred" *ngIf="post.tags.includes('NSFW') && post.blurred === 'unset'" style="position: absolute; z-index: 1; padding: 0px 25px; padding-top: 15%;" [style.height]="h">
+    <div style="text-align: center;">This post has been tagged under NSFW and might contain adult content. Do you still want to view it? <br>
+      <button style="margin-top: 10px;" (click)="checkBlur(post.key, $event)" mat-raised-button color="primary">VIEW POST</button>
+    </div> 
+  </div>
+  
+  <mat-card [ngClass]="post.tags.includes('NSFW') && post.blurred === 'unset' ? 'blurred' : ''" class="example-card mat-elevation-z4" [(style.height)]="h">
+    <mat-card-header>
+      <mat-card-title (click)="viewFullPost(post.key)">
+        <div
+          class="post-title"
+          [innerHTML]="(post.title | searchHighlight: searchTerms).value"
+        >
+          <!-- {{post.title}} -->
+        </div>
+      </mat-card-title>
+  
+      <!-- <div class="float-right text-right">
+        <div class="btn-group" role="group"> -->
+      <!-- <button
+            onclick="this.blur()"
+            mat-icon-button
+            (click)="openSharingOptions(post.key)"
+            class="share"
+          >
+            <mat-icon>share</mat-icon>
+          </button> -->
+  
+      <!-- <button
+            style="font-size: medium;"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>expand_more</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              (click)="openSnackBar('copy')"
+              [cdkCopyToClipboard]="'Title: ' + post.title + '\n\n' + post.body"
+            >
+              <mat-icon>content_copy</mat-icon>
+              <span>Copy to clipboard</span>
+            </button>
+            <button mat-menu-item (click)="openSnackBar('report', post.key)">
+              <mat-icon>report</mat-icon>
+              <span>Report this post</span>
+            </button>
+  
+            <button
+              onclick="this.blur()"
+              mat-menu-item
+              (click)="openSharingOptions(post.key)"
+            >
+              <mat-icon>share</mat-icon>
+              <span>Share</span>
+            </button>
+          </mat-menu> -->
+      <!-- </div>
+      </div> -->
+  
+      <mat-card-subtitle>
+        {{ post.dateCreated | date: "MMM d, yy &nbsp;&nbsp;H:mm" }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <hr style="border: 1px solid grey;" class="hr" />
+  
+    <mat-card-content>
+      <p
+        *ngIf="route === 'home'"
+        (click)="viewFullPost(post.key)"
+        class="main-card-content-short"
+        [innerHTML]="
+          post.body.length > 150
+            ? (post.body | slice: 0:150 | linkify | searchHighlight: searchTerms)
+                .value + ' .... READ MORE'
+            : (post.body | linkify | searchHighlight: searchTerms).value
+        "
+      >
+        <!-- {{ (post.body.length > 150)? 
+          (post.body | slice:0:150 | searchHighlight:searchTerms) + ' .... Read More' : 
+          (post.body | searchHighlight:searchTerms) }} -->
+      </p>
+  
+      <p
+        *ngIf="route === 'fullpost'"
+        class="main-card-content"
+        [innerHTML]="post.body | linkify"
+      >
+        <!-- {{ post.body  }} -->
+      </p>
+  
+      <hr *ngIf="insideSearch" class="hr" />
+  
+      <p
+        class="mark-references"
+        *ngIf="route === 'home' && insideSearch"
+        (click)="viewFullPost(post.key)"
+      >
+        {{
+          (post.body | searchHighlight: searchTerms).count === 1
+            ? (post.body | searchHighlight: searchTerms).count +
+              " reference found"
+            : (post.body | searchHighlight: searchTerms).count +
+              " references found"
+        }}
+        inside body
+      </p>
+  
+      <hr class="hr" />
+  
+      <mat-chip-list *ngIf="route === 'home'" aria-label="Selected tags">
+        <mat-chip
+          style="
+            color: black;
+            background-color: #ffc107;
+            font-weight: bold;
+            cursor: pointer;
+          "
+          class="tags"
+          *ngFor="let p of post.tags.slice(0, 5)"
+          (click)="applyFilter(p)"
+        >
+          {{ p }}
+        </mat-chip>
+  
+        <mat-chip
+          (click)="viewFullPost(post.key)"
+          *ngIf="post.tags.length > 5"
+          style="
+            color: black;
+            background-color: #ec9be3;
+            font-weight: bold;
+            cursor: pointer;
+          "
+          class="tags"
+        >
+          + More
+        </mat-chip>
+      </mat-chip-list>
+  
+      <mat-chip-list *ngIf="route === 'fullpost'" aria-label="Selected tags">
+        <mat-chip
+          style="
+            color: black;
+            background-color: #ffc107;
+            font-weight: bold;
+            cursor: pointer;
+          "
+          class="tags"
+          *ngFor="let p of post.tags"
+          (click)="applyFilter(p)"
+        >
+          {{ p }}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button (click)="updateLikes(post.key, $event)" class="like">
+          <mat-icon [class.liked]="post.liked === 'true'">
+            favorite
+          </mat-icon>
+        </button>
+  
+        <button class="numberlikes" disabled>{{ post.likes }}</button>
+  
+        <button (click)="updateDislikes(post.key, $event)" class="dislike">
+          <mat-icon [class.disliked]="post.disliked === 'true'">
+            thumb_down_alt
+          </mat-icon>
+        </button>
+  
+        <button class="numberdislikes" disabled>{{ post.dislikes }}</button>
+  
+        <button (click)="viewFullPost(post.key)" mat-icon-button class="comment">
+          <mat-icon class="comment-icon">forum</mat-icon>
+          {{ post.totalComments }}
+        </button>
+      </div>
+  
+      <div class="float-right">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button
+            style="font-size: medium;"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>expand_more</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              (click)="openSnackBar('copy')"
+              [cdkCopyToClipboard]="'Title: ' + post.title + '\n\n' + post.body"
+            >
+              <mat-icon>content_copy</mat-icon>
+              <span>Copy to clipboard</span>
+            </button>
+            <button mat-menu-item (click)="openSnackBar('report', post.key)">
+              <mat-icon>report</mat-icon>
+              <span>Report this post</span>
+            </button>
+  
+            <button
+              onclick="this.blur()"
+              mat-menu-item
+              (click)="openSharingOptions(post.key)"
+            >
+              <mat-icon>share</mat-icon>
+              <span>Share</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

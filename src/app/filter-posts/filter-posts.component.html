@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <div *ngIf="tags$ | async as tags; else loaded">
+        <!-- <a mat-list-item routerLink="/feed">
+            <div class="sheet-item">
+                All Tags
+            </div>
+        </a> -->
+        <a mat-list-item (click)="applyFilter(tag.val.name)" *ngFor="let tag of tags">
+            <div class="sheet-item">
+                {{ tag.val.name }}
+            </div>
+        </a>
+    </div>
+
+    <ng-template #loaded>
+        <loader></loader>
+    </ng-template>
+</mat-nav-list>

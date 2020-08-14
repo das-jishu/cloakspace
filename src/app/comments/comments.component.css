@@ -1,0 +1,55 @@
+table {
+  width: 100%;
+  display: block;
+}
+
+.mat-column-icon {
+  max-width: 70px !important;
+  text-align: left;
+}
+
+.picture {
+  top: 0 !important;
+}
+
+.mat-column-icon mat-cell {
+  text-align: left;
+  margin-left: 0px;
+}
+
+mat-row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.date {
+  font-size: 12px;
+  color: lightgrey;
+  /* margin-left: 4px; */
+}
+
+.text {
+  white-space: pre-wrap;
+}
+
+textarea#textarea {
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  padding-bottom: 18px; 
+}
+
+.example-form-field {
+  width: 100%;
+  margin: 15px 0px 0px 0px;
+}
+
+#prefixemojiicon {
+  top: -2px;
+  left: -2px;
+}
+
+@media (max-width: 700px) {
+  #prefixemojiicon {
+    display: none;
+  }
+}

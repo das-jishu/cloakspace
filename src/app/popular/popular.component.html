@@ -1,0 +1,26 @@
+<spinner *ngIf="isLoading; else loaded"></spinner>
+
+<ng-template #loaded>
+    <div class="row">
+        <div class="col-sm-0 col-lg-3">
+            <posts-filter></posts-filter>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <div class="alert alert-dark">
+                <h1 style="text-align: center;">Here are the most popular posts for you.</h1>
+            </div>
+            <div class="row" *ngFor="let p of posts; let i = index">
+                <div class="col-sm-12 col-lg-12">
+                    <post-card [post]="p" [route]="'home'"></post-card>
+                </div>
+            </div>
+            <div class="alert caughtup text-center">You are all caught up!
+                <br>
+                <button routerLink="/feed" style="margin-top: 15px;" class="btn" mat-raised-button>Back to feed</button>
+            </div>
+        </div>
+        <div class="col-sm-0 col-lg-3">
+            <trending></trending>
+        </div>
+    </div>
+</ng-template>

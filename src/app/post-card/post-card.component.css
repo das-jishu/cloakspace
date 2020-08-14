@@ -1,0 +1,168 @@
+.example-card {
+  max-width: 1000px;
+}
+
+.blurred {
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+mat-card {
+  margin-bottom: 30px;
+  background-color: black;
+}
+
+mat-card-header {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  height: auto;
+}
+
+mat-card-title {
+  max-width: 100%;
+  margin-right: 0px;
+  cursor: pointer;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+mat-card-title div {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 2px 0;
+}
+
+@media (min-width: 992px) {
+  mat-card-title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  mat-card-title {
+    max-width: 100%;
+  }
+}
+
+mat-card hr {
+  border-radius: 1px solid #f9f9f9;
+  margin: 0px 0px 10px 0px;
+}
+
+mat-card-content {
+  font-size: 15px;
+}
+
+mat-card-content p {
+  overflow: hidden;
+}
+
+.main-card-content {
+  white-space: pre-line;
+}
+
+.main-card-content-short {
+  cursor: pointer;
+}
+
+.mark-references {
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-weight: bold;
+  background-color: cyan;
+  cursor: pointer;
+  color: #000000;
+  text-align: center;
+}
+
+::ng-deep .mat-card-title .post-title {
+  font-size: 20px;
+}
+
+.main-card-content-short span {
+  color: #ffc824;
+  font-weight: bold;
+}
+
+.btn-group button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: whitesmoke;
+  font-size: medium;
+}
+
+.share {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: whitesmoke;
+  /* margin-top: 6px; */
+  margin-right: 10px;
+  padding-bottom: 2px;
+}
+
+.comment {
+  margin-left: 14px;
+  margin-top: 1px;
+  margin-right: 5px;
+  padding: 0 2px;
+}
+
+.comment-icon {
+  margin-right: 5px;
+}
+
+.like {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.like:hover {
+  background-color: grey;
+}
+
+.dislike {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.liked {
+  color: crimson;
+}
+
+.disliked {
+  color: #ec9be3;
+}
+
+.comment mat-icon {
+  color: #e4ea7d;
+}
+
+mat-card-header span {
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.float-right {
+  margin-top: -2px;
+  margin-right: 5px;
+}
+
+.mat-chip {
+  color: black;
+  background-color: yellow;
+}
+
+.tags {
+  cursor: default;
+  user-select: none;
+}
+
+.text-right {
+  position: absolute;
+  right: 0px;
+}

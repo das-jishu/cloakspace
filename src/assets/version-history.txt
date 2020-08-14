@@ -1,0 +1,12 @@
+v1.0.0 -- Initial deployed state.
+v1.0.1 -- Fixed bugs related to alignment. Changed layout of the post-card.
+v1.1.0 -- Added policy.
+v1.1.1 -- Fixed bug in trending posts.
+v1.2.0 -- Added new feature: Replying to comments.
+v1.3.0 -- Added new feature: Notification alerts for new posts and comments.
+v1.3.1 -- Changed the width of the reply field in comments.
+v1.4.0 -- Added emoji support for large screens.
+v1.4.1 -- Fixed bug in comments, changed message while entering email.
+v1.4.2 -- Fixed bug in post-card title where all words were breaking.
+v1.5.2 -- Blurred all NSFW tagged posts.
+v1.5.3 -- Fixed alignment.

@@ -1,0 +1,29 @@
+<div class="fixed">
+    <p class="text-center font-weight-bold">
+        What's hot ?
+    </p>
+
+    <div class="sticky-top">
+        <div class="list-group">
+
+            <button mat-button color="accent" (click)="showPopular()" class="button font-weight-bold">
+                <mat-icon class="mat-icon-stars">stars</mat-icon>
+                Popular posts
+            </button>
+            <button class="button font-weight-bold" mat-button color="warn" (click)="showTrending()">
+                <mat-icon>trending_up</mat-icon>
+                Most trending post
+            </button>
+            <button class="button font-weight-bold" mat-button class="recent" (click)="showRecent()">
+                <mat-icon class="mat-icon-schedule">schedule</mat-icon>
+                Most recent posts
+            </button>
+
+        </div>
+    </div>
+
+    <div class="totalposts text-center">
+        <p>Total posts: {{ totalPosts }}</p>
+        <p>Total page visits: {{ totalPageVisits }}</p>
+    </div>
+</div>

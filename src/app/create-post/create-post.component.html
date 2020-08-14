@@ -1,0 +1,89 @@
+<div class="col mx-auto">
+
+    <div id="emoj" style="display: none; position: absolute; top: 200px; left: 250px; z-index:10000;">
+        <emoji-mart (emojiClick)="addEmoji($event)" title="Pick one." emoji="point_up"></emoji-mart><br>
+        <button mat-raised-button (click)="emojiSelect($event)" style="background-color: red; font-weight: bold; margin-right: 20px;">Close</button>
+        <button mat-raised-button id="emojheader" style="background-color: #FFC825; font-weight: bold; color: black;">Hold here to drag</button>
+    </div>
+
+    <div id="emojs" style="display: none; position: absolute; top: 200px; left: 250px; z-index:10000;">
+        <emoji-mart (emojiClick)="addEmoji2($event)" title="Pick one." emoji="point_up"></emoji-mart><br>
+        <button mat-raised-button (click)="emojiSelect2($event)" style="background-color: red; font-weight: bold; margin-right: 20px;">Close</button>
+        <button mat-raised-button id="emojsheader" style="background-color: #FFC825; font-weight: bold; color: black;">Hold here to drag</button>
+    </div>
+
+    <h1>Go On! Post Something?</h1>
+    <form #f="ngForm" class="main-form" (ngSubmit)="save(f.value)">
+
+        <mat-form-field appearance="outline" class="mat-form-field">
+            <mat-label>What's on your mind?</mat-label>
+            <input id="title" (focus)="scrollTo('title')" matInput #title="ngModel" [(ngModel)]="value" name="title"
+                placeholder="What's on your mind?" required maxlength="60">
+            <mat-error class="text-center" *ngIf="title.touched && title.invalid">
+                <div *ngIf="title.errors?.required">
+                    Oops. This is a required field!
+                </div>
+                <div *ngIf="title.errors?.maxlength">
+                    Title should be maximum of 60 characters.
+                </div>
+            </mat-error>
+            <button type="button" id="prefixemoticon" (click)="emojiSelect($event)" matPrefix mat-button mat-icon-button>
+                <mat-icon>mood</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mat-form-field main-body">
+            <mat-label>Elaborate your thoughts</mat-label>
+            <textarea id="body" (focus)="scrollTo('body')" #body="ngModel" [(ngModel)]="value2" name="body" matInput rows="10"
+                cols="70" mat-autosize placeholder="Elaborate your thoughts" required
+                style="overflow: hidden;"></textarea>
+            <mat-error class="text-center" *ngIf="body.touched && body.invalid">
+                Come on. You gotta elaborate!
+            </mat-error>
+            <button type="button" id="prefixemoticon2" (click)="emojiSelect2($event)" matPrefix mat-button mat-icon-button>
+                <mat-icon>mood</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <div class="optional">Optional to receive notifications via mail.</div>
+        <mat-form-field appearance="outline" class="mat-form-field">
+            <mat-label>Your Email ID</mat-label>
+            <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" (focus)="scrollTo('email')" matInput
+                #email="ngModel" ngModel name="email" placeholder="sam@gmail.com">
+
+            <mat-error class="text-center" *ngIf="email.errors?.pattern">
+                Whoa, that's not a valid Email ID!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mat-form-field">
+            <mat-label>Add a few tags</mat-label>
+            <mat-select #tags="ngModel" ngModel name="tags" multiple required>
+                <mat-select-trigger>
+                    {{tags.value ? tags.value[0] : ''}}
+                    <span *ngIf="tags.value?.length > 1" class="tagList">
+                        (+{{tags.value.length - 1}} {{tags.value?.length === 2 ? 'other' : 'others'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let t of tags$ | async" [value]="t.val.name">
+                    {{ t.val.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error class="text-center" *ngIf="tags.touched && tags.invalid">
+                Okay. Just this once!
+            </mat-error>
+        </mat-form-field>
+
+
+        <div class="action-buttons">
+            <button mat-raised-button color="accent" [disabled]="f.invalid" type="submit" class="post-btn">
+                Post
+            </button>
+            <button mat-button mat-dialog-close>Cancel</button>
+        </div>
+
+        <div class="policy">Read our <a mat-dialog-close [routerLink]="['/policy']">policy here</a> to stay updated</div>
+
+    </form>
+
+</div>

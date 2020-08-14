@@ -1,0 +1,169 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar {
+  height: 60px;
+}
+
+.mat-toolbar.mat-primary {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.fix-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  margin-bottom: 15px;
+  color: darkgray;
+  user-select: none;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.create-post-button {
+  margin-right: 0.8rem;
+}
+
+.search-icon {
+  margin-right: 0.8rem;
+}
+
+.filter-icon {
+  margin-right: 0.8rem;
+}
+
+.mat-icon-explore {
+  margin-bottom: 5px;
+  margin-top: 2px;
+}
+
+.mat-icon-sidemenu {
+  margin-top: -4px;
+}
+
+.mat-icon-waves {
+  margin-top: 2px;
+  margin-bottom: 3px;
+}
+
+.mat-icon-create {
+  margin-top: 2px;
+  margin-bottom: 5px;
+  margin-right: 3px;
+}
+
+.mat-icon-search {
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.mat-icon-filter {
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.verbosy {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.logo-main {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-main img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: -5px;
+}
+
+.show {
+  display: block;
+  max-width: 350px;
+  transform: scale(1);
+  margin-right: 20px;
+}
+
+.hide {
+  display: none;
+  max-width: 0px;
+  transform: scale(0);
+}
+
+.search-bar {
+  flex: 1;
+  z-index: 999;
+  font-size: 14px;
+  width: 350px;
+  height: 35px;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .tag-menu-content button {
+  font-family: "Quicksand", sans-serif;
+}
+
+::ng-deep .tag-menu-content {
+  height: 50vh !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .verbosy {
+    /* margin-left: 4px;
+    font-size: 13px; */
+    display: none;
+  }
+
+  .mat-icon-waves {
+    margin-left: -12px;
+    margin-top: 8px;
+    font-size: 18px;
+  }
+
+  .mat-icon-sidemenu {
+    margin-top: -4px;
+  }
+}
+
+@media (min-width: 992px) {
+  .filter-icon,
+  .small-search,
+  .small-create {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .btn-search,
+  .btn-create {
+    display: none;
+  }
+
+  .small-search,
+  .small-create {
+    display: block;
+  }
+}
