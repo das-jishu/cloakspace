@@ -14,6 +14,7 @@ An anonymous platform for everyone to share their thoughts freely without the fe
 <br />
 
 ## ABOUT US
+
 [Cloakspace](https://cloakspace.tech) is different from a typical social media platform which logs all sorts of data about the user. We do not store any of your data and simultaneously provide a smooth experience. We tried to provide all sorts of features which can be exploited without storing information about the user. There are no hidden costs involved. This is a completely free platform where you can leave your thoughts and read some more without constantly worrying of being tracked or judged by someone.
 
 <br />
@@ -39,15 +40,19 @@ An anonymous platform for everyone to share their thoughts freely without the fe
 - A constructive feedback system.
 
 #### Visit [Cloakspace](https://cloakspace.tech) now! :heart:
+
 #### Follow us on [Facebook](https://www.facebook.com/cloakspace07/) to get updates! :smiley:
+
 #### Also check out our post on [Medium](https://medium.com/@das.jishu25/need-anonymity-and-privacy-to-feel-safe-when-opening-up-cloakspace-is-here-for-you-a11bfc0c67da?source=your_stories_page---------------------------).
 
 If you loved our project, do leave a star to show us your support. Thank you! :star:
 
 ### LICENSE
+
 [MIT](https://github.com/das-jishu/cloakspace/blob/master/LICENSE.md)
 
 ### Authors
+
 [Subhranil Dutta](https://github.com/alpha037)
 <br />
 [Subham Das](https://github.com/das-jishu)
